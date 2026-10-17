@@ -166,7 +166,8 @@ void showAlphabeticalList(Seat flight[])
 }
 
 
-/* Read a nonempty name, allowing cancellation */
+/* Read a nonempty name, allowing cancellation
+I was lowkey having issues with scanf so I used fgets instead after looking online */
 int readName(const char *prompt, char name[], size_t size)
 {
     while (1) {
@@ -253,11 +254,6 @@ void deleteSeat(Seat flight[])
 
     if (seatID <= 0) {
         printf("Deletion cancelled.\n");
-        return;
-    }
-
-    if (flight[seatID - 1].assigned == 0) {
-        printf("Seat %d is already empty.\n", seatID);
         return;
     }
 
